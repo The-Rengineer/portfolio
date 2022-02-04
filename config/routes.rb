@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 get "users/top" => "users#top"
 get "users/new" => "users#new"
 post "users/create" => "users#create"
+get "users/login_form" => "users#login_form"
+post "users/login" => "users#login"
 
 end
