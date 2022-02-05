@@ -8,6 +8,11 @@
             <input type="submit" value="保存">
           </div>
         </div>
-    <% end %>   
+    <% end %>
+    <% @post.errors.full_messages.each do |message| %>
+      <div class="form-error">
+        <%= message %>
+      </div>
+    <% end %>
   </div>
 </div>
