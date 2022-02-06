@@ -15,5 +15,6 @@ get "users/new" => "users#new"
 post "users/create" => "users#create"
 get "users/login_form" => "users#login_form"
 post "users/login" => "users#login"
+post "users/logout" => "users#logout" 
 
 end

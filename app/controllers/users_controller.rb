@@ -19,10 +19,19 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
-      flash[:notice] = "ログインしました"
+      session[:name] = @user.name
+      session[:user_id] = @user.id
+      #flash[:notice] = "ログインしました"
       redirect_to("/")
     else
-      render("users/login")
+      render("users/login_form")
     end
+  end
+
+  def logout
+    session[:name] = nil
+    session[:user_id] = nil
+    #flash[:notice] = "ログインしました"
+    redirect_to("/users/login_form")
   end
 end

@@ -14,17 +14,24 @@
         <%= link_to("ポートフォリオ", "/")%>
       </div>
       <ul class="header-menus">
-        <li>
-          <%= link_to("ログイン", "/users/login_form")%>
-        </li>
+        <% if session[:user_id] %>
+          <li><%= "こんにちは、#{session[:name]}さん" %>
+          <li>
+            <%= link_to("ログアウト", "/users/logout", {method: "post"})%>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("ログイン", "/users/login_form")%>
+          </li>
+          <li>
+            <%= link_to("新規登録", "/users/new") %>
+          </li>
+        <% end %>
         <li>
           <%= link_to("投稿一覧", "/posts/index") %>
         </li>
         <li>
           <%= link_to("新規投稿", "/posts/new") %>
-        </li>
-        <li>
-         <%= link_to("新規登録", "/users/new") %>
         </li>
       </ul>
     </header>
