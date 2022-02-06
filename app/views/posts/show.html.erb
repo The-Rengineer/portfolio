@@ -1,8 +1,18 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
-        <p>
+      <div class="post-user-name">
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
+        <p>タイトル:
+          <%= @post.title %>
+        </p>
+        <p>概要:
             <%= @post.content %>
+        </p>
+        <p>募集人数:
+          <%= @post.NumApplicants %>
+          人
         </p>
         <div class="post-time">
             <%= @post.created_at %>
