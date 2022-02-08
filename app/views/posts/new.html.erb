@@ -9,9 +9,21 @@
               <%= message %>
             </div>
           <% end %>
-          <input type="text" name="title" value="ポートフォリオタイトル">
-          <textarea name="content"><%= @post.content %></textarea>
-          <input type="number" name="NumApplicants">
+          <p>タイトル：
+            <input type="text" name="title">
+          </p>
+          <p>概要：
+            <textarea name="content"><%= @post.content %></textarea>
+          </p>
+          <p>募集人数：
+            <input type="number" name="NumApplicants">
+          </p>
+          <p>
+            開始日: <input type="date" name="start_date">
+            終了日: <input type="date" name="end_date">
+          </p>
+          
+          
           <input type="submit" value="投稿">
         </div>
       </div>
