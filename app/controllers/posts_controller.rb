@@ -16,11 +16,14 @@ class PostsController < ApplicationController
   end
 
   def create
+    
     @post = Post.new(
       content: params[:content],
       user_id: @current_user.id,
       title: params[:title],
-      NumApplicants: params[:NumApplicants] 
+      NumApplicants: params[:NumApplicants],
+      start_date: params[:start_date],
+      end_date: params[:end_date]
     )
 
     if @post.save 

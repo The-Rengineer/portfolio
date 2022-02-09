@@ -14,12 +14,18 @@
           <%= @post.NumApplicants %>
           人
         </p>
+        <p>製作期間:
+          <%= @post.start_date %>
+          ~
+          <%= @post.end_date %>
+        </p>
         <div class="post-time">
             <%= @post.created_at %>
         </div>
         <div class="post-menus">
           <%= link_to("編集", "/posts/#{@post.id}/edit") %>
           <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+          <%= link_to("戻る", "/posts/index") %>
         </div>
     </div>
 
