@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user
       session[:name] = @user.name
       session[:user_id] = @user.id
-      #flash[:notice] = "ログインしました"
+      flash[:notice] = "ログインしました"
       redirect_to("/")
     else
       render("users/login_form")
@@ -31,7 +31,11 @@ class UsersController < ApplicationController
   def logout
     session[:name] = nil
     session[:user_id] = nil
-    #flash[:notice] = "ログインしました"
+    flash[:notice] = "ログアウトしました"
     redirect_to("/users/login_form")
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
   end
 end
