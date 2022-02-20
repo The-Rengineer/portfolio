@@ -1,0 +1,38 @@
+<div class="main posts-index">
+  <div class="container">
+    <p><%= @user.name %>さんがいいねした案件数は<%= @likes_count %>件です。</p>
+    <% @likes.each do |like| %>
+      <% @posts = Post.where(id: like.post_id) %>
+      
+      <% @posts.each do |post| %>
+        <div class="posts-index-item">
+            <div class="post-user-name">
+              <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+            </div>
+            <p>
+              タイトル:
+              <%=post.title %>
+            </p>
+            <p>
+              概要:
+              <%= link_to(post.content, "/posts/#{post.id}") %>
+            </p>
+            <p>
+              募集人数:
+              <%= post.NumApplicants %>
+              人
+            </p>
+            <p>
+              開始日:
+              <%= post.start_date %>
+              ~
+              終了日:
+              <%= post.end_date %>
+            </p>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>portfolio</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -33,7 +34,14 @@
         <li>
           <%= link_to("新規投稿", "/posts/new") %>
         </li>
+        <li>
+          <%= link_to("プロフィール", "/users/#{session[:user_id]}") %>
+        </li>
+        <li>
+          <%= link_to("いいねした投稿", "/likes/index") %>
+        </li>
       </ul>
+      
     </header>
     <% if flash[:notice] %>
       <div class="flash">

@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       session[:name] = @user.name
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
-      redirect_to("/")
+      redirect_to("/posts/index")
     else
       render("users/login_form")
     end
