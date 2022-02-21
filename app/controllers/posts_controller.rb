@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     #画像は後ほど追加予定(https://prog-8.com/rails5/study/9/4#/11)
     @user = @post.user
+    @likes_count = Like.where(post_id: @post.id).count
   end
 
   def new
