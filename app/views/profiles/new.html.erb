@@ -1,0 +1,25 @@
+<div class="main users-new">
+  <h1><%= "#{@user.name}さんのプロフィール画面" %></h1>
+  
+  <% if @profile.present? %>
+    <p>年齢</p>
+      <%= @profile.age %>
+    <p>出身地</p>
+      <%= @profile.birthPlace%>
+    <p>スキル</p>
+      <%= @profile.skill %>
+    <div>
+      <%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%>
+    </div>
+  <% else %>
+    <p>年齢</p>
+      
+    <p>出身地</p>
+      
+    <p>スキル</p>
+     
+    <div>
+      <%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%>
+    </div>
+  <% end %>
+</div>

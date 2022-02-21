@@ -1,0 +1,24 @@
+<div class="main users-new">
+  <h1><%= "#{@user.name}さんのプロフィール編集画面" %></h1>
+  <% if @profile.present? %>
+    <%= form_tag("/profiles/update") do %>
+      <p>年齢</p>
+      <input value = <%= "#{@profile.age}" %> name="age">
+      <p>出身地</p>
+      <input value = <%= "#{@profile.birthPlace}" %> name = "birthPlace">
+      <p>スキル</p>
+      <input value = <%= "#{@profile.skill}" %> name = "skill">
+      <input type = "submit" value="登録">
+    <% end %>
+  <% else %>
+    <%= form_tag("/profiles/create") do %>
+      <p>年齢</p>
+      <input name="age">
+      <p>出身地</p>
+      <input name = "birthPlace">
+      <p>スキル</p>
+      <input name = "skill">
+      <input type = "submit" value="登録">
+    <% end %>
+  <% end %>
+</div>

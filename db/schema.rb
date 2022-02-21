@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220207134804) do
+ActiveRecord::Schema.define(version: 20220219085705) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",       limit: 65535
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20220207134804) do
     t.integer  "NumApplicants"
     t.date     "start_date"
     t.date     "end_date"
+  end
+
+  create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "age"
+    t.string   "birthPlace"
+    t.string   "skill"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "userId"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
