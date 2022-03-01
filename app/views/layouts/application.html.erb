@@ -16,7 +16,7 @@
       </div>
       <ul class="header-menus">
         <% if session[:user_id] %>
-          <li><%= link_to("#{session[:name]}さん","/users/#{session[:user_id]}") =%>
+          <li><%= link_to("#{session[:name]}さん","/profiles/#{session[:user_id]}") =%>
           <li>
             <%= link_to("ログアウト", "/users/logout", {method: "post"})%>
           </li>
