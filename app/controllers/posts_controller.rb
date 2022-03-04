@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(id: params[:post_id])
     #画像は後ほど追加予定(https://prog-8.com/rails5/study/9/4#/11)
     @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
@@ -36,11 +36,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(id: params[:post_id])
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(id: params[:post_id])
     @post.title = params[:title]
     @post.content = params[:content]
     @post.NumApplicants = params[:NumApplicants]
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(id: params[:post_id])
     @post.destroy
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
