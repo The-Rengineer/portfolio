@@ -1,12 +1,13 @@
 class ProfilesController < ApplicationController
+  
   def new
-    @user = User.find_by(id: params[:id])
-    @profile = Profile.find_by(userId: params[:id])
+    @user = User.find_by(id: params[:user_id])
+    @profile = Profile.find_by(userId: params[:user_id])
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
-    if @profile = Profile.find_by(userId: params[:id])
+    @user = User.find_by(id: params[:user_id])
+    if @profile = Profile.find_by(userId: params[:user_id])
     
     else
       @profile = nil

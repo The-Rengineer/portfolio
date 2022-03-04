@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+
   #CSRF保護の無効化、あとで要確認
-  protect_from_forgery with: :null_session
+  # protect_from_forgery with: :null_session
   def top
   end
 
@@ -35,7 +36,4 @@ class UsersController < ApplicationController
     redirect_to("/users/login_form")
   end
 
-  def show
-    @user = User.find_by(id: params[:id])
-  end
 end

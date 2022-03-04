@@ -19,11 +19,9 @@ class LikesController < ApplicationController
 
     # ログインしたユーザーがいいねした投稿のみを表示させる
     def index
-        # @current_user = 1 => 取得できるデータ数 = 3件 取得できている
         @user = User.find_by(id: @current_user)
         @likes = Like.where(user_id: @current_user)
         @likes_count = Like.where(user_id: @current_user).count
-
     end
     
   end
