@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  def new
+  def index
     @user = User.find_by(id: params[:id])
     @profile = Profile.find_by(userId: params[:id])
   end

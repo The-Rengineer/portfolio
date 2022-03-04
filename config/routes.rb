@@ -23,7 +23,7 @@ post "users/login" => "users#login"
 post "users/logout" => "users#logout" 
 get "users/:id" => "users#show"
 
-get "profiles/:id" => "profiles#new"
+get "profiles/:id" => "profiles#index"
 get "profiles/edit/:id" => "profiles#edit"
 post "profiles/create" => "profiles#create"
 post "profiles/update" => "profiles#update"
