@@ -10,7 +10,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(name: params[:name], email: params[:email], password: params[:password])
-    @user.save
+    
+    if authenticatePassword
+      @user.save
+    end
     redirect_to("/")
   end
 
@@ -35,5 +38,14 @@ class UsersController < ApplicationController
     flash[:notice] = "ログアウトしました"
     redirect_to("/users/login_form")
   end
+
+  
+  
+  def authenticatePassword
+    if @user.password == params[:confirmPassword]
+      return true
+    end
+  end
+
 
 end
