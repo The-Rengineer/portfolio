@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
 
+  # loginメソッド(postメソッドに対しはbefore_actionが効いていない)
+  before_action :forbid_login_user, only: ["login_form", "login"]
+  
   #CSRF保護の無効化、あとで要確認
   # protect_from_forgery with: :null_session
-  def top
-  end
+
+  # def top <= 必要か確認する
+  # end
 
   def new
   end

@@ -16,7 +16,21 @@
       </div>
       <ul class="header-menus">
         <% if session[:user_id] %>
-          <li><%= link_to("#{session[:name]}さん") =%>
+          <li>
+            <%= link_to("#{session[:name]}さん") =%>
+          </li>
+          <li>
+            <%= link_to("案件を探す", "/posts/index") %>
+          </li>
+          <li>
+            <%= link_to("メンバーを募集する", "/posts/new") %>
+          </li>
+          <li>
+            <%= link_to("プロフィール", "/profiles/#{session[:user_id]}") %>
+          </li>
+          <li>
+            <%= link_to("いいねした投稿", "/likes/index") %>
+          </li>
           <li>
             <%= link_to("ログアウト", "/users/logout", {method: "post"})%>
           </li>
@@ -28,18 +42,6 @@
             <%= link_to("新規登録", "/users/new") %>
           </li>
         <% end %>
-        <li>
-          <%= link_to("案件を探す", "/posts/index") %>
-        </li>
-        <li>
-          <%= link_to("メンバーを募集する", "/posts/new") %>
-        </li>
-        <li>
-          <%= link_to("プロフィール", "/profiles/#{session[:user_id]}") %>
-        </li>
-        <li>
-          <%= link_to("いいねした投稿", "/likes/index") %>
-        </li>
       </ul>
       
     </header>

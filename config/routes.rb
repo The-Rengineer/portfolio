@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   
 
   #userのルーティング
-  get "users/top" => "users#top"
+  # get "users/top" => "users#top" <= 必要か確認する
   get "users/new" => "users#new"
   get "users/login_form" => "users#login_form"
   post "users/create" => "users#create"
