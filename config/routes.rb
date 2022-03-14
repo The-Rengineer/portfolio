@@ -34,4 +34,8 @@ Rails.application.routes.draw do
   post "profiles/create" => "profiles#create"
   post "profiles/update" => "profiles#update"
 
+  #roomのルーティング
+  get "rooms/new" => "rooms#new"
+  post "rooms/create/:user_id" => "rooms#create"
+
 end
