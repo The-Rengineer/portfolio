@@ -35,7 +35,10 @@ Rails.application.routes.draw do
   post "profiles/update" => "profiles#update"
 
   #roomのルーティング
-  get "rooms/new" => "rooms#new"
+  get "rooms/:room_id" => "rooms#new"
   post "rooms/create/:user_id" => "rooms#create"
+
+  #chat_messagesのルーティング
+  post "chat_messages/create/:room_id" => "chat_messages#create"
 
 end
