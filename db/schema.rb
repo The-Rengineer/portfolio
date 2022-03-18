@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20220309142800) do
+ActiveRecord::Schema.define(version: 20220312094655) do
 
   create_table "amessages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "message_content", limit: 65535
@@ -19,8 +18,7 @@ ActiveRecord::Schema.define(version: 20220309142800) do
     t.integer  "to_user_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-=======
-ActiveRecord::Schema.define(version: 20220312094655) do
+  end
 
   create_table "chat_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "room_id",    null: false
@@ -30,7 +28,6 @@ ActiveRecord::Schema.define(version: 20220312094655) do
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_chat_messages_on_room_id", using: :btree
     t.index ["user_id"], name: "index_chat_messages_on_user_id", using: :btree
->>>>>>> b52401a6eb780aa1a78a4770d88f2fc021f21c58
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
