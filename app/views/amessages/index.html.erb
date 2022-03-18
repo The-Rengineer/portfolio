@@ -1,0 +1,32 @@
+
+    <% @messages.each do |message| %>
+        <% fromUser = User.find_by(id: message.from_user_id) %>
+        <% toUser = User.find_by(id: message.to_user_id) %>
+            <% if @current_user == fromUser %>
+                <p>
+                 ★SENT★
+                </p>
+                <p>
+                  From:<%= fromUser.email %>
+                </p>
+                <p>
+                  To:<%= toUser.email %>
+                </p>
+                <p>
+                  メール本文: <%= message.message_content %>
+                </p>
+            <% elsif @current_user == toUser %>
+                <p>
+                 ★INBOX★
+                </p>
+                <p>
+                  From:<%= fromUser.email %>
+                </p>
+                <p>
+                  To:<%= toUser.email %>
+                </p>
+                <p>
+                  メール本文: <%= message.message_content %>
+                </p>
+            <% end %>
+    <% end %>

@@ -34,4 +34,8 @@ Rails.application.routes.draw do
   post "profiles/create" => "profiles#create"
   post "profiles/update" => "profiles#update"
 
+  #amessageのルーティング
+  get "amessages/index" => "amessages#index"
+  post "amessages/create" => "amessages#create"
+
 end

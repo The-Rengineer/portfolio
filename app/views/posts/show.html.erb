@@ -22,6 +22,15 @@
         <div class="post-time">
             <%= @post.created_at %>
         </div>
+        <%# メールボックス機#1で追加ここから %>
+        <%# フォーム送信後にどこへ飛ばすかは検討中 %>
+        <%= form_tag("/amessages/create") do %>
+          <textarea name="message_content"></textarea>
+          <input type="hidden" name="to_user_id" value="<%= @post.id %>">
+          <input type="submit" value="応募する">
+        <% end %>
+        <%# メールボックス機#1で追加ここまで %>
+
         <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
           <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
             <span class="fa fa-heart liked-btn"></span>
