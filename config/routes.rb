@@ -34,8 +34,16 @@ Rails.application.routes.draw do
   post "profiles/create" => "profiles#create"
   post "profiles/update" => "profiles#update"
 
+
   #amessageのルーティング
   get "amessages/index" => "amessages#index"
   post "amessages/create" => "amessages#create"
+
+  #roomのルーティング
+  get "rooms/:room_id" => "rooms#new"
+  post "rooms/create/:user_id" => "rooms#create"
+
+  #chat_messagesのルーティング
+  post "chat_messages/create/:room_id" => "chat_messages#create"
 
 end

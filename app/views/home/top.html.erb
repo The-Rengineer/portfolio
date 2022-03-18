@@ -1,2 +1,8 @@
 <div class="main top-main">
+  #テスト用
+  <% @users.each do |user| %>
+    <div>
+      <%= link_to "#{user.name}", "/rooms/create/#{user.id}", method: :post %>
+    </div>
+  <% end %>
 </div>
