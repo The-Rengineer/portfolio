@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   post "amessages/create" => "amessages#create"
 
   #roomのルーティング
+  get "rooms/top" => "rooms#top"
   get "rooms/:room_id" => "rooms#new"
   post "rooms/create/:user_id" => "rooms#create"
 

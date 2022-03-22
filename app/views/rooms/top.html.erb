@@ -1,0 +1,10 @@
+<div class="main posts-index">
+  <div class="container">
+    <h1>チャットルーム一覧</h1>
+    <% @rooms.each do |room| %>
+      <div>
+        <%= link_to "ルーム#{room.room_id}", "/rooms/#{room.room_id}" %>
+      </div>
+    <% end %>
+  </div>
+</div>  

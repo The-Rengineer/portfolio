@@ -46,4 +46,9 @@ class RoomsController < ApplicationController
     @room = Room.find_by(id: params[:room_id])
     @chats = @room.chat_messages
   end
+
+  def top
+    @user = User.find_by(id: session[:user_id])
+    @rooms = @user.user_rooms
+  end
 end
