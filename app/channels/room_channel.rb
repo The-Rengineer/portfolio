@@ -11,3 +11,4 @@ class RoomChannel < ApplicationCable::Channel
     ActionCable.server.broadcast 'room_channel', message: data['message']
   end
 end
+
