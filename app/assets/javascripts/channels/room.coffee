@@ -1,3 +1,4 @@
+#最新盤ですよ
 App.room = App.cable.subscriptions.create "RoomChannel",
   connected: ->
     # 通信が確立された時の処理
