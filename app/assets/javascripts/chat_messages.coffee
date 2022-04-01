@@ -16,7 +16,7 @@ App.chat_messages = App.cable.subscriptions.create "Chat_messagesChannel",
     @perform 'speak', message: message
 
 # チャットを送る
-$(document).on 'click', '[data-behavior~=chat_messages_speaker]', (event) ->
+$(document).on 'click', '[data-behavior~=chat_messages_speak]', (event) ->
   # return(Enter)が押された時
   #if event.keyCode is 13
     #channel speakへ、event.target.valueを引数に

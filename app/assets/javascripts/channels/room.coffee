@@ -7,13 +7,14 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 
   received: (data) ->
     # データが送信されてきた時の処理
+     alert data['message']
 
   speak: (message) ->
     # channelのspeakアクションにmessageパラメータを渡す
     @perform 'speak', message: message
 
 # チャットを送る
-$(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
+$('#chat').on 'keypress', '[data-behavior~=room_speak]', (event) ->
   # return(Enter)が押された時
   if event.keyCode is 13
     #channel speakへ、event.target.valueを引数に
