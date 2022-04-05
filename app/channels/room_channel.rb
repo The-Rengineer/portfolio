@@ -4,11 +4,11 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
   end
 
-  def speak(data)   #サーバーサイドのspeakアクションの定義
-    ActionCable.server.broadcast 'room_channel', message: data['message']
+  #サーバーサイドのspeakアクションの定義（room.coffeeのspeakメソッドから値取得）
+  def speak(message)
+    ActionCable.server.broadcast 'room_channel', message: message['message']
   end
 end
 

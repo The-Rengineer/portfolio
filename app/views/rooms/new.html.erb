@@ -1,13 +1,15 @@
 <div class="main posts-new">
   <p><%= "ルーム#{@room.id}"%></p>
-  <%= form_tag("/chat_messages/create/#{@room.id}") do %>
+  <%# <%= form_tag("/chat_messages/create/#{@room.id}") do %>
     <div class="form">
       <div class="form-body">
-        <textarea name="content"></textarea>
-        <input type="submit" id="chat" data-behavior="room_speaker" value="保存">
+      <form>
+        <input type="text" id="content" data-behavior="room_speaker_keypress">
+        <input type="submit" id ="save" data-behavior="room_speaker_click" value="保存">
+      </form>
       </div>
     </div>
-  <% end %>
+  <%# <% end %>
   <div class="form">
     <% @room.chat_messages.each do |message| %>
       <div class="messages">
@@ -16,5 +18,8 @@
         <p>時刻：<%= message.created_at %></p>
       </div>
     <% end %>
+  </div>
+  <div id="add-message">
+  a
   </div>
 </div>  
