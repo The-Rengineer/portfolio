@@ -27,7 +27,17 @@
           <%= post.end_date %>
         </p>
         <p>
-          募集終了まで残り: 日付の加減をする必要あり  
+          募集終了まで残り: 
+           <% require "date" %>
+           <% today = Date.today %>
+           <% leftDays = post.end_date - today %>
+           <% if leftDays <= 0 %>
+            <%= "募集が終了しました！" %>
+           <% elsif %>
+            <%= leftDays.numerator %>
+            日
+           <% end %>
+           
         </p>
       </div>
     <% end %>
