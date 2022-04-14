@@ -2,7 +2,14 @@ class PostsController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @posts = Post.all.order(updated_at: :desc)
+    @search_word = params[:keyword]
+
+    if @search_word
+      # タイトルもしくは案件概要に検索キーワードが含まれている投稿を詰める
+      @posts = Post.where(['content LIKE ?', "%#{@search_word}%"]).or(Post.where(['title LIKE ?', "%#{@search_word}%"]))
+    else 
+      @posts = Post.all.order(updated_at: :desc)
+    end
   end
 
   def show
@@ -58,5 +65,6 @@ class PostsController < ApplicationController
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
+
   
 end

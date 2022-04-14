@@ -1,6 +1,15 @@
 
 <div class="main posts-index">
   <div class="container">
+
+    <%# 検索機能 %>
+    <div class="search-container">
+      <%= form_tag("/posts/index", :method => :get) do %>
+        <input type="text" name="keyword" placeholder="キーワードから探す">
+        <input type="submit" value="検索">
+      <% end %>
+    </div>
+
     <% @posts.each do |post| %>
       <div class="posts-index-item">
         <div class="post-user-name">
