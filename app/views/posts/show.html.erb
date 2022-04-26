@@ -30,15 +30,6 @@
           <input type="submit" value="応募する">
         <% end %>
         <%# メールボックス機#1で追加ここまで %>
-
-        <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-          <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
-            <span class="fa fa-heart liked-btn"></span>
-          <% end %>
-       <% else %>
-          <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
-             <span class="fa fa-heart unliked-btn"></span>
-          <% end %>
       <% end %>
       
       <%= @likes_count %>

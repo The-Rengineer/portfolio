@@ -14,12 +14,6 @@ Rails.application.routes.draw do
   post "posts/:post_id/update" => "posts#update"
   post "posts/:post_id/destroy" => "posts#destroy"
 
-  #likeのルーティング
-  get "likes/index" => "likes#index"
-  post "likes/:post_id/create" => "likes#create"
-  post "likes/:post_id/destroy" => "likes#destroy"
-  
-
   #userのルーティング
   # get "users/top" => "users#top" <= 必要か確認する
   get "users/new" => "users#new"
