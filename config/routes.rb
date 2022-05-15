@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   
+  get 'favorites/create'
+
+  get 'favorites/destroy'
+
   #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #homeのルーティング
   get "/" => "home#top"
@@ -40,5 +44,9 @@ Rails.application.routes.draw do
 
   #chat_messagesのルーティング
   post "chat_messages/create/:room_id" => "chat_messages#create"
+
+  resources :posts do
+    resource :favorites, only: [:create, :destroy]
+  end
 
 end
