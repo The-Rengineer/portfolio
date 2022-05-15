@@ -32,6 +32,12 @@
         <%# メールボックス機#1で追加ここまで %>
       
       <%# <%= @likes_count %>
+      <%# ここからrenderエラー %>
+     <div class="favorites" id="favorite_<%= @post.id %>">
+      <%= render('favorites/favorite'), post: @post %>
+     </div>
+     <%# ここまでrenderエラー %>
+     
 
         <div class="post-menus">
           <%= link_to("編集", "/posts/#{@post.id}/edit") %>

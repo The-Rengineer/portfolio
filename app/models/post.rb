@@ -6,6 +6,11 @@ class Post < ApplicationRecord
     validates :start_date, {presence: true}
     validates :end_date, {presence: true}
 
+    belongs_to :user
+    #いいね機能のアソシエーション処理
+    has_many :favorites, dependent: :destroy
+    has_many :favorite_users, through: :favorites, source: :user
+
     def user
         return User.find_by(id: self.user_id)
     end
