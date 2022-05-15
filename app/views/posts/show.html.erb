@@ -34,7 +34,7 @@
       <%# <%= @likes_count %>
       <%# ここからrenderエラー %>
      <div class="favorites" id="favorite_<%= @post.id %>">
-      <%= render('favorites/favorite'), post: @post %>
+      <%= render "favorites/favorite", {post: @post, current_user: @current_user} %>
      </div>
      <%# ここまでrenderエラー %>
      
