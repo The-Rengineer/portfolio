@@ -1,13 +1,18 @@
- <% if current_user.favorites.find_by(post_id: post.id) %>
-    <%= link_to post_favorites_path(post.id), method: :delete, remote: true do %>
-      <span class="fa fa-heart liked-btn"></span>
-      <p>いいねしてる</p>
+ <% if current_user %>
+  <% if current_user.favorites.find_by(post_id: post.id) %>
+      <%= link_to post_favorites_path(post.id), method: :delete, remote: true do %>
+        <span class="fa fa-heart liked-btn"></span>
+      <% end %>
+      <%= post.favorites.count %>
+    <% else %>
+      <%= link_to post_favorites_path(post.id), method: :post, remote: true do %>
+        <span class="fa fa-heart unliked-btn"></span>
+      <% end %>
       <%= post.favorites.count %>
     <% end %>
   <% else %>
-    <%= link_to post_favorites_path(post.id), method: :post, remote: true do %>
-      <span class="fa fa-heart unliked-btn"></span>
-      <p>いいねしてない</p>
-      <%= post.favorites.count %>
+    <%= link_to user_path do %>
+      <span class="fa fa-heart liked-btn"></span>
     <% end %>
+    <%= post.favorites.count %>
   <% end %>
