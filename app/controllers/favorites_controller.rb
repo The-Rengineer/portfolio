@@ -1,19 +1,18 @@
 class FavoritesController < ApplicationController
-  before_action :set_post 
+  before_action :post_params
 
   def create
-    @favorite = Favorite.new(user_id: current_user.id,  post_id: @post.id)
-    @favorite.save
+    Favorite.create(user_id: @current_user.id, post_id: params[:id])
   end
 
   def destroy
-    @favorite = Favorite.find_by(user_id: current_user.id, post_id:  @post.id)
-    @favorite.destroy
+    Favorite.find_by(user_id: @current_user.id, post_id: params[:id]).destroy
   end
-
+  
   private
 
-  def set_post
-    @post = Post.find_by(id: params[:post_id])
+  def post_params
+    @post = Post.find(params[:id])
   end
+
 end

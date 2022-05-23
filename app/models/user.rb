@@ -7,9 +7,13 @@ class User < ApplicationRecord
   validates :password, {presence: true}
 
   has_many :posts
-  #いいね機能のアソシエーション処理
-  has_many :favorites, dependent: :destroy
-  has_many :favorite_posts, through: :favorites, source: :post
+  has_many :favorites
+
+  # いいね非同期で追加
+  def favorited_by?(post_id)
+    favorites.where(post_id: post_id).exists?
+  end
+ 
 
   def posts 
     return Post.where(user_id: self.id)

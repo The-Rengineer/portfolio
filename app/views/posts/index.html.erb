@@ -45,9 +45,11 @@
            <% elsif %>
             <%= leftDays.numerator %>
             日
-           <% end %>
-           
+           <% end %>    
         </p>
+         <div id="favorites_buttons_<%= post.id %>">
+            <%= render partial: 'favorites/favorite', locals: {post: post} %>
+        </div>
       </div>
     <% end %>
   </div>
