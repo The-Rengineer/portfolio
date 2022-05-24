@@ -1,18 +1,15 @@
- <% if current_user %>
-  <% if current_user.favorites.find_by(post_id: post.id) %>
-      <%= link_to post_favorites_path(post.id), method: :delete, remote: true do %>
-        <span class="fa fa-heart liked-btn"></span>
-      <% end %>
-      <%= post.favorites.count %>
-    <% else %>
-      <%= link_to post_favorites_path(post.id), method: :post, remote: true do %>
-        <span class="fa fa-heart unliked-btn"></span>
-      <% end %>
-      <%= post.favorites.count %>
-    <% end %>
-  <% else %>
-    <%= link_to user_path do %>
+<% if @current_user.favorited_by?(post.id) %>
+   <td>
+    <%= link_to destroy_favorite_path(post.id), method: :delete, remote: true do%>      
       <span class="fa fa-heart liked-btn"></span>
     <% end %>
     <%= post.favorites.count %>
-  <% end %>
+  </td>
+ <% else %>
+   <td>
+    <%= link_to create_favorite_path(post.id), method: :post, remote: true do%>
+      <span class="fa fa-heart unliked-btn"></span>
+    <% end %>
+    <%= post.favorites.count %>
+  </td>
+<% end %>
