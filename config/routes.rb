@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post "users/create" => "users#create"
   post "users/login" => "users#login"
   post "users/logout" => "users#logout" 
+  post "users/:user_id/destroy" => "users#destroy"
   
   #profileのルーティング
   get "profiles/:user_id" => "profiles#index"

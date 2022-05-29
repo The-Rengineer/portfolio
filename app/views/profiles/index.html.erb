@@ -11,6 +11,9 @@
     <div>
       <%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%>
     </div>
+    <div>
+      <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
+    </div>
   <% else %>
     <p>年齢</p>
       
@@ -20,6 +23,9 @@
      
     <div>
       <%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%>
+    </div>
+    <div>
+      <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
     </div>
   <% end %>
 </div>
