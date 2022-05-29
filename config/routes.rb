@@ -6,13 +6,13 @@ Rails.application.routes.draw do
 
   #postのルーティング
   get "posts/index" => "posts#index"
+  get "posts/favorites_index" => "posts#favorites_index"
   get "posts/new" => "posts#new"
   get "posts/:post_id" => "posts#show"
   get "posts/:post_id/edit" => "posts#edit"
   post "posts/create" => "posts#create"
   post "posts/:post_id/update" => "posts#update"
-  post "posts/:post_id/destroy" => "posts#destroy"
-
+  
   #userのルーティング
   # get "users/top" => "users#top" <= 必要か確認する
   get "users/new" => "users#new"

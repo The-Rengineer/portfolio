@@ -8,7 +8,7 @@ class FavoritesController < ApplicationController
   def destroy
     Favorite.find_by(user_id: @current_user.id, post_id: params[:id]).destroy
   end
-  
+
   private
 
   def post_params

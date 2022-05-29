@@ -12,6 +12,23 @@ class PostsController < ApplicationController
     end
   end
 
+   # お気に入りした案件の表示
+  def favorites_index
+    @user = @current_user
+    favorites_table = Favorite.all
+    @posts = []
+
+    if favorites_table
+      favorites_table.each do |favorite|
+        if favorite.user_id = @user
+          post = Post.find_by(id: favorite.post_id)
+          @posts.push(post)
+        end
+      end
+    end
+    render("posts/index")
+  end
+
   def show
     @post = Post.find_by(id: params[:post_id])
     @user = @post.user
@@ -63,6 +80,5 @@ class PostsController < ApplicationController
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
-
   
 end
