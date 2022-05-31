@@ -7,49 +7,49 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body>
     <header>
-      <div class="header-logo">
-        <%= link_to("ポートフォリオ", "/")%>
-      </div>
-      <ul class="header-menus">
-        <% if session[:user_id] %>
-          <li>
-            <%= link_to("#{session[:name]}さん") =%>
-          </li>
-          <li>
-            <%= link_to("案件を探す", "/posts/index") %>
-          </li>
-          <li>
-            <%= link_to("メンバーを募集する", "/posts/new") %>
-          </li>
-          <li>
-            <%= link_to("プロフィール", "/profiles/#{session[:user_id]}") %>
-          </li>
-          <li>
-            <%= link_to("お気に入りの案件", "/posts/favorites_index") %>
-          </li>
-          <li>
-            <%= link_to("メール", "/amessages/index") %>
-          </li>
-          <li>
-             <%= link_to("チャット", "/rooms/top") %>
-          </li>
-          <li>
-            <%= link_to("ログアウト", "/users/logout", {method: "post"})%>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to("ログイン", "/users/login_form")%>
-          </li>
-          <li>
-            <%= link_to("新規登録", "/users/new") %>
-          </li>
-        <% end %>
-      </ul>
-      
+      <div class= "flex flex-row-reverse h-12 w-full bg-blue-400">
+        <ul class="header-menus flex self-center">
+          <% if session[:user_id] %>
+            <li>
+              <%= link_to("#{session[:name]}さん","/") =%>
+            </li>
+            <li class= "ml-2">
+              <%= link_to("案件を探す", "/posts/index") %>
+            </li>
+            <li class= ml-2>
+              <%= link_to("メンバーを募集する", "/posts/new") %>
+            </li>
+            <li class= ml-2>
+              <%= link_to("プロフィール", "/profiles/#{session[:user_id]}") %>
+            </li>
+            <li class= ml-2>
+              <%= link_to("お気に入りの案件", "/posts/favorites_index") %>
+            </li>
+            <li class= ml-2>
+              <%= link_to("メール", "/amessages/index") %>
+            </li>
+            <li class= ml-2>
+              <%= link_to("チャット", "/rooms/top") %>
+            </li>
+            <li class= ml-2>
+              <%= link_to("ログアウト", "/users/logout", {method: "post"})%>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to("ログイン", "/users/login_form")%>
+            </li>
+            <li class= ml-2>
+              <%= link_to("新規登録", "/users/new") %>
+            </li>
+          <% end %>
+        </ul>
+      </div>  
     </header>
     <% if flash[:notice] %>
       <div class="flash">
