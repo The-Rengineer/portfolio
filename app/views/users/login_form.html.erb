@@ -1,17 +1,16 @@
-<div class="main users-new">
-  <div class="container">
-    <div class="form-heading">ログイン</div>
-    <div class="form users-form">
-      <div class="form-body">
+<div class="pt-40 h-screen">
+  <div class="form users-form">
+    <div class="form-body flex justify-center">
       <%= form_tag("/users/login") do %>
         <p>メールアドレス</p>
-        <input name="email">
-        <p>パスワード</p>
+        <input name="email" class="border-solid border-2 border-indigo-600">
+        <p class="mt-3">パスワード</p>
         <!-- 以下のinputタグにtype属性を指定してください -->
-        <input type="password" name="password">
-        <input type="submit" value="ログイン">
+        <input type="password" name="password" class="border-solid border-2 border-indigo-600">  
+        <div class="flex justify-center mt-3">
+          <input type="submit" value="ログイン" class="rounded-full border-solid border-2 border-indigo-600 hover:border-dotted p-1">
+        </div>      
       <% end %>
-      </div>
     </div>
   </div>
 </div>

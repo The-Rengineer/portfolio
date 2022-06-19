@@ -1,15 +1,5 @@
-<div class="main posts-new">
+<div class="px-3 py-3 h-screen">
   <p><%= "ルーム#{@room.id}"%></p>
-  <%# <%= form_tag("/chat_messages/create/#{@room.id}") do %>
-    <div class="form">
-      <div class="form-body">
-      <form>
-        <input type="text" id="content" data-behavior="room_speaker_keypress" data-user=<%= @current_user.id%> data-room=<%= @room.id%>>
-        <input type="submit" id ="save" data-behavior="room_speaker_click" value="保存">
-      </form>
-      </div>
-    </div>
-  <%# <% end %>
   <div id="form2">
     <% @chats.each do |message| %>
       <div class="messages">
@@ -20,3 +10,9 @@
     <% end %>
   </div>
 </div>  
+<div class="sticky bottom-0 flex justify-center">
+  <form class="pb-4">
+    <input class="border-current border" type="text" id="content" data-behavior="room_speaker_keypress" data-user=<%= @current_user.id%> data-room=<%= @room.id%>>
+    <input type="submit" id ="save" data-behavior="room_speaker_click" value="送信">
+  </form>
+</div>

@@ -13,7 +13,7 @@
 
   <body>
     <header>
-      <div class= "flex flex-row-reverse h-12 w-full bg-blue-400">
+      <div class= "flex flex-row-reverse w-full bg-blue-400">
         <ul class="header-menus flex self-center">
           <% if session[:user_id] %>
             <li>
@@ -52,7 +52,7 @@
       </div>  
     </header>
     <% if flash[:notice] %>
-      <div class="flash">
+      <div class="flash flex justify-center px-8 bg-yellow-200">
         <%= flash[:notice] %>
       </div>
     <% end %>

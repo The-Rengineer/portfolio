@@ -1,31 +1,33 @@
-<div class="main users-new">
+<div class="h-screen flex flex-col">
   <h1><%= "#{@user.name}さんのプロフィール画面" %></h1>
-  
   <% if @profile.present? %>
-    <p>年齢</p>
-      <%= @profile.age %>
-    <p>出身地</p>
-      <%= @profile.birthPlace%>
-    <p>スキル</p>
-      <%= @profile.skill %>
-    <div>
-      <%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%>
-    </div>
-    <div>
-      <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
+    <div class="h-3/6 flex flex-col justify-center items-center">
+      <div class="w-48">
+        <p class="h-10">年齢</p>
+        <p class="h-10"><%= @profile.age %></p>
+        <p class="h-10">出身地</p>
+        <p class="h-10"><%= @profile.birthPlace%></p>
+        <p class="h-10">スキル</p>
+        <p class="h-10"><%= @profile.skill %></p>
+        <p class="h-10"><%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%><%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %></p>
+      </div>
     </div>
   <% else %>
-    <p>年齢</p>
-      
-    <p>出身地</p>
-      
-    <p>スキル</p>
-     
-    <div>
-      <%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%>
-    </div>
-    <div>
-      <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
+    <div class="h-3/6 flex flex-col justify-center items-center">
+      <div class="w-48">
+        <p class="h-10">年齢</p>
+        <div class="h-10"></div>
+        <p class="h-10">出身地</p>
+        <div class="h-10"></div>
+        <p class="h-10">スキル</p>
+        <div class="h-10"></div>
+        <div>
+          <%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%>
+        </div>
+        <div>
+          <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

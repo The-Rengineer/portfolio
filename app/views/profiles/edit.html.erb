@@ -1,16 +1,35 @@
-<div class="main users-new">
+<div class="h-screen flex flex-col">
   <h1><%= "#{@user.name}さんのプロフィール編集画面" %></h1>
   <% if @profile.present? %>
-    <%= form_tag("/profiles/update") do %>
-      <p>年齢</p>
-      <input value = <%= "#{@profile.age}" %> name="age">
-      <p>出身地</p>
-      <input value = <%= "#{@profile.birthPlace}" %> name = "birthPlace">
-      <p>スキル</p>
-      <input value = <%= "#{@profile.skill}" %> name = "skill">
-      <input type = "submit" value="登録">
-    <% end %>
+    <div class="h-3/6 flex flex-col justify-center items-center">
+      <%= form_tag("/profiles/update") do %>
+        <div class="w-48">
+          <p class="h-10">年齢</p>
+          <% if @profile.age.blank? %>
+            <input name="age" class="border-solid border-2 border-indigo-600 h-10">
+          <% else %>
+            <input value = <%= "#{@profile.age}" %> name="age" class="border-solid border-2 border-indigo-600 h-10">
+          <% end %>
+          <p class="h-10">出身地</p>
+          <% if @profile.birthPlace.blank? %>
+            <input name = "birthPlace" class="border-solid border-2 border-indigo-600 h-10">
+          <% else %>
+            <input value = <%= "#{@profile.birthPlace}" %> name="birthPlace" class="border-solid border-2 border-indigo-600 h-10">
+          <% end %>
+          <p class="h-10">スキル</p>
+          <% if @profile.skill.blank? %>
+            <input name = "skill" class="border-solid border-2 border-indigo-600 h-10">
+          <% else %>
+            <input value = <%= "#{@profile.skill}" %> name="skill" class="border-solid border-2 border-indigo-600 h-10">
+          <% end %>
+        </div>
+        <div class="flex justify-center">
+          <input type = "submit" value="登録" class="rounded-md border-solid border-2 border-indigo-600 hover:border-dotted p-1 h-10">
+        </div>
+      <% end %>
+    </div>
   <% else %>
+    <div class="h-3/6">
     <%= form_tag("/profiles/create") do %>
       <p>年齢</p>
       <input name="age">
