@@ -1,18 +1,28 @@
-<div class="px-3 py-3 h-screen">
+<div class="px-3 py-3 h-screen bg-sky-200 overflow-auto">
   <p><%= "ルーム#{@room.id}"%></p>
   <div id="form2">
-    <% @chats.each do |message| %>
-      <div class="messages">
-        <p>内容：<%= message.content %></p>
-        <p>名前：<%= message.user.name %></p>
-        <p>時刻：<%= message.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %></p>
+       <% @chats.each do |message| %>
+      <% if message.user_id == @current_user.id %>
+      <div class="flex justify-end">
+        <div class="border-soild border bg-green-300 rounded-full mt-1 px-4 py-4 w-3/5 justify-self-end">
+          <p>内容：<%= message.content %></p>
+          <p>名前：<%= message.user.name %></p>
+          <p>時刻：<%= message.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %></p>
+        </div>
       </div>
+      <% else %>
+        <div class="border-soild border border-black rounded-full mt-1 px-4 py-4 w-3/5 justify-self-end">
+          <p>内容：<%= message.content %></p>
+          <p>名前：<%= message.user.name %></p>
+          <p>時刻：<%= message.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %></p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>  
-<div class="sticky bottom-0 flex justify-center">
+<div class="sticky bottom-0 flex justify-center bg-white">
   <form class="pb-4">
     <input class="border-current border" type="text" id="content" data-behavior="room_speaker_keypress" data-user=<%= @current_user.id%> data-room=<%= @room.id%>>
-    <input type="submit" id ="save" data-behavior="room_speaker_click" value="送信">
+    <input type="submit" id ="save" data-behavior="room_speaker_click" value="&#xf1d8;" class="fas">
   </form>
 </div>
