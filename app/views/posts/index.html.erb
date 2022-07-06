@@ -1,56 +1,45 @@
-
-<div class="main posts-index">
-  <div class="container">
-
-    <%# 検索機能 %>
-    <div class="search-container">
-      <%= form_tag("/posts/index", :method => :get) do %>
-        <input type="text" name="keyword" placeholder="キーワードから探す">
-        <input type="submit" value="検索">
+<div class="w-full">
+    <div class="flex justify-center h-12 items-center my-5">
+      <%= form_tag("/posts/index", :method => :get) do%>
+        <div class="border-2 rounded">
+          <input type="text" name="keyword" placeholder="キーワードから探す" class="py-2 px-12">
+          <input type="submit" value="検索" class="py-2 px-8 bg-slate-100 border-l-2">
+        </div>
       <% end %>
     </div>
-
-    <% @posts.each do |post| %>
-      <div class="posts-index-item">
-        <div class="post-user-name">
-          <%= link_to(post.user.name, "/profiles/#{post.user.id}") %>
+    <div class="flex flex-col items-center">
+     <% @posts.each do |post| %>
+      <div class="flex w-3/6 border-2 py-2 px-2 mb-2">
+        <div class="w-3/6 mr-2">
+          <p class="text-blue-600"><%= link_to(post.title, "/posts/#{post.id}") %></p>
+          <p class="text-xs"><%=post.content %></p>
+          <div class="self-end">
+            <p class="text-xs"><%= link_to(post.user.name, "/profiles/#{post.user.id}") %></p>
+          </div>
         </div>
-        <p>
-          タイトル:
-          <%=post.title %>
-        </p>
-        <p>
-          概要:
-          <%= link_to(post.content, "/posts/#{post.id}") %>
-        </p>
-        <p>
-          募集人数:
-          <%= post.NumApplicants %>
-          人
-        </p>
-        <p>
-          開始日:
-          <%= post.start_date %>
-          ~
-          終了日:
-          <%= post.end_date %>
-        </p>
-        <p>
-          募集終了まで残り: 
-           <% require "date" %>
-           <% today = Date.today %>
-           <% leftDays = post.end_date - today %>
-           <% if leftDays <= 0 %>
-            <%= "募集が終了しました！" %>
-           <% elsif %>
-            <%= leftDays.numerator %>
-            日
-           <% end %>    
-        </p>
-         <div id="favorites_buttons_<%= post.id %>">
+        <div class="w-2/6 mr-2">
+          <p>
+            募集人数:
+            <%= post.NumApplicants %>
+            人
+          </p>
+          <p>
+            募集終了まで: 
+            <% require "date" %>
+            <% today = Date.today %>
+            <% leftDays = post.end_date - today %>
+            <% if leftDays <= 0 %>
+              <%= "募集終了" %>
+            <% elsif %>
+              <%= leftDays.numerator %>日
+            <% end %>    
+          </p>
+          <p>(<%= post.end_date.strftime("%-m月%d日") %>まで)</p>
+        </div>
+        <div id="favorites_buttons_<%= post.id %>">
             <%= render partial: 'favorites/favorite', locals: {post: post} %>
         </div>
       </div>
-    <% end %>
-  </div>
+     <% end %>
+    </div>
 </div>
