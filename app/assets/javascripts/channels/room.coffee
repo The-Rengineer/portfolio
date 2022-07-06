@@ -18,7 +18,5 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     @perform 'speak', {message: message, user: user, room: room}
 
 $(document).on 'click', '[data-behavior~=room_speaker_click]', (event) ->
-  event.target.value = document.getElementById("content").value
-  #channel speakへ、event.target.valueを引数に
-  App.room.speak event.target.value, $('[data-user]').attr('data-user'),$('[data-room]').attr('data-room') 
-  event.target.value = '送信'
+  App.room.speak document.getElementById("content").value, $('[data-user]').attr('data-user'),$('[data-room]').attr('data-room') 
+ 

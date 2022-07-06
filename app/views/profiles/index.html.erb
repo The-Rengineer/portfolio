@@ -9,7 +9,7 @@
         <p class="h-10"><%= @profile.birthPlace%></p>
         <p class="h-10">スキル</p>
         <p class="h-10"><%= @profile.skill %></p>
-        <p class="h-10"><%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%><%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %></p>
+        <p class="h-10"><%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%></p>
       </div>
     </div>
   <% else %>
@@ -23,9 +23,6 @@
         <div class="h-10"></div>
         <div>
           <%= link_to("編集画面へ","/profiles/edit/#{@user.id}")%>
-        </div>
-        <div>
-          <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
         </div>
       </div>
     </div>
