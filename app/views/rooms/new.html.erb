@@ -1,6 +1,6 @@
 <div class="px-3 py-3 h-screen bg-sky-200 overflow-auto">
   <p><%= "ルーム#{@room.id}"%></p>
-  <div id="form2">
+  <div>
        <% @chats.each do |message| %>
       <% if message.user_id == @current_user.id %>
       <div class="flex justify-end">
@@ -18,6 +18,8 @@
         </div>
       <% end %>
     <% end %>
+  </div>
+  <div id="form2">
   </div>
 </div>  
 <div class="sticky bottom-0 flex justify-center bg-white">
