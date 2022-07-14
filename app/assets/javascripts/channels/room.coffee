@@ -9,9 +9,9 @@ App.room = App.cable.subscriptions.create "RoomChannel",
   received: (data) ->
     # データが送信されてきた時の処理
     # alert data["message"]
-    $('#form2').append("<p>" + "内容：" + data["message"] + "</p>");
-    $('#form2').append("<p>" + "名前：" + data["user"] + "</p>");
-    $('#form2').append("<p>" + "時刻：" + data["time"] + "</p>");
+    $('#recieve').append("<p>" + "内容：" + data["message"] + "</p>");
+    $('#recieve').append("<p>" + "名前：" + data["user"] + "</p>");
+    $('#recieve').append("<p>" + "時刻：" + data["time"] + "</p>");
 
   speak: (message, user, room) ->
     # channelのspeakアクションにmessageパラメータを渡す
