@@ -1,7 +1,7 @@
 <div class="px-3 py-3 h-screen bg-sky-200 overflow-auto">
   <p><%= "ルーム#{@room.id}"%></p>
   <div>
-      <% @chats.each do |message| %>
+    <% @chats.each do |message| %>
       <% if message.user_id == @current_user.id %>
       <div class="flex justify-end">
         <div class="border-soild border bg-green-300 rounded-full mt-1 px-4 py-4 w-3/5 justify-self-end">
@@ -17,16 +17,8 @@
           <p>時刻：<%= message.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %></p>
         </div>
       <% end %>
-      <% if message.user_id == @current_user.id %>
-       <div id="recieve">
-       </div>
-      <% else %>
-        <div id="recieve">
-        </div>
-      <% end %>
     <% end %>
-  </div>
-  <div id="form2">
+    <div id="chat-message"></div>
   </div>
 </div>  
 <div class="sticky bottom-0 flex justify-center bg-white">

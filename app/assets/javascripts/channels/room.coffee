@@ -8,11 +8,13 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 
   received: (data) ->
     # データが送信されてきた時の処理
-    # alert data["message"]    
-    $('#form2').append("<p>" + "内容：" + data["message"] + "</p>");
-    $('#form2').append("<p>" + "名前：" + data["user"] + "</p>");
-    $('#form2').append("<p>" + "時刻：" + data["time"] + "</p>");
-    $('#form2').addClass('changeStyle');
+    # alert data["message"] 
+    divAscync = document.createElement("div");
+    $(divAscync).addClass('changeStyle');
+    $(divAscync).append("<p>" + "内容：" + data["message"] + "</p>");
+    $(divAscync).append("<p>" + "名前：" + data["user"] + "</p>");
+    $(divAscync).append("<p>" + "時刻：" + data["time"] + "</p>");
+    $('#chat-message').append(divAscync);
 
   speak: (message, user, room) ->
     # channelのspeakアクションにmessageパラメータを渡す
