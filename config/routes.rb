@@ -48,5 +48,6 @@ Rails.application.routes.draw do
 
   #adminのルーティング
   get "admin/index" => "admin#index"
+  post "admin/:user_id/destroy" => "admin#destroy"
 
 end
