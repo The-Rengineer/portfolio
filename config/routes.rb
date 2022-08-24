@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   #いいね非同期で追加
   post "favorite/:id" => "favorites#create", as: 'create_favorite'
   delete "favorite/:id" => "favorites#destroy", as: 'destroy_favorite'
- 
+
+
+  #adminのルーティング
+  get "admin/index" => "admin#index"
 
 end
