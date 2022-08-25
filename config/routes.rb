@@ -28,7 +28,6 @@ Rails.application.routes.draw do
   post "profiles/create" => "profiles#create"
   post "profiles/update" => "profiles#update"
 
-
   #amessageのルーティング
   get "amessages/index" => "amessages#index"
   post "amessages/create" => "amessages#create"
@@ -49,5 +48,6 @@ Rails.application.routes.draw do
   #adminのルーティング
   get "admin/index" => "admin#index"
   post "admin/:user_id/destroy" => "admin#destroy"
+  post "admin/:user_id/update" => "admin#update"
 
 end

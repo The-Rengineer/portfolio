@@ -27,4 +27,5 @@ class ProfilesController < ApplicationController
     @profile.update(age: params[:age], birthPlace: params[:birthPlace], skill: params[:skill])
     redirect_to("/profiles/#{session[:user_id]}")
   end
+
 end

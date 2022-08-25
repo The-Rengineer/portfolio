@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220823130452) do
+ActiveRecord::Schema.define(version: 20220825130526) do
 
   create_table "amessages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "message_content", limit: 65535
@@ -78,9 +78,10 @@ ActiveRecord::Schema.define(version: 20220823130452) do
     t.string   "name"
     t.string   "email"
     t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.boolean  "admin_flag"
+    t.boolean  "activation_flag"
   end
 
   add_foreign_key "chat_messages", "rooms"

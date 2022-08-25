@@ -1,5 +1,5 @@
 <div>
-<% @users.each do |user| %>
+  <% @users.each do |user| %>
     <div>
         <%= user.name %>
     </div>
@@ -7,10 +7,15 @@
         <%= user.email %>
     </div>
     <% if user.id != @current_user.id %>
-        <div>
-            <%# <%= link_to("編集", "/posts/#{user.id}/edit") %>
-            <%= link_to("削除", "/admin/#{user.id}/destroy", {method: "post"}) %>
-        </div>
+      <div>
+        <%= link_to("削除", "/admin/#{user.id}/destroy", {method: "post"}) %>
+        <%= link_to("編集", "/profiles/edit/#{user.id}") %>
+      </div>
+      <% if user.activation_flag %>
+        <%= link_to("無効化", "/admin/#{user.id}/update", {method: "post"}) %>
+      <% else %>
+        <%= link_to("有効化", "/admin/#{user.id}/update", {method: "post"}) %>
+      <% end %>
     <% end %>
-<% end %>
+  <% end %>
 </div>

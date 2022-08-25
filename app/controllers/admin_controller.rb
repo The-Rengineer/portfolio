@@ -9,4 +9,17 @@ class AdminController < ApplicationController
     flash[:notice] = "ユーザを削除しました"
     redirect_to("/admin/index")
   end
+    
+  def update
+    @user = User.find_by(id: params[:user_id])
+
+    flag = @user.activation_flag
+
+    if flag
+      @user.update(activation_flag: false)
+    else
+      @user.update(activation_flag: true)
+    end
+    redirect_to("/admin/index")
+  end
 end
