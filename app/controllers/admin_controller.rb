@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   def index
-    @users = User.all.order(updated_at: :desc)
+    @users = User.all.order(id: :desc)
   end
 
   def destroy

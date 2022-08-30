@@ -2,7 +2,7 @@
   <h1><%= "#{@user.name}さんのプロフィール編集画面" %></h1>
   <% if @profile.present? %>
     <div class="h-3/6 flex flex-col justify-center items-center">
-      <%= form_tag("/profiles/update") do %>
+      <%= form_tag("/profiles/update/#{@user.id}") do %>
         <div class="w-48">
           <p class="h-10">年齢</p>
           <% if @profile.age.blank? %>
@@ -30,7 +30,7 @@
     </div>
   <% else %>
     <div class="h-3/6">
-    <%= form_tag("/profiles/create") do %>
+    <%= form_tag("/profiles/create/#{@user.id}") do %>
       <p>年齢</p>
       <input name="age">
       <p>出身地</p>

@@ -25,8 +25,8 @@ Rails.application.routes.draw do
   #profileのルーティング
   get "profiles/:user_id" => "profiles#index"
   get "profiles/edit/:user_id" => "profiles#edit"
-  post "profiles/create" => "profiles#create"
-  post "profiles/update" => "profiles#update"
+  post "profiles/create/:user_id" => "profiles#create"
+  post "profiles/update/:user_id" => "profiles#update"
 
   #amessageのルーティング
   get "amessages/index" => "amessages#index"
