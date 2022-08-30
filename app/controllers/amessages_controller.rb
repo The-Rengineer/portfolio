@@ -13,9 +13,6 @@ class AmessagesController < ApplicationController
 
     def index
         @messages = Amessage.all
-        # if @current_user == @message.to_user_id
-        # else
-        # end
     end
 
   end

@@ -1,14 +1,6 @@
 class RoomsController < ApplicationController
   def create
-    #@room = Room.new
-    #if  @room.save
-     # UserRoom.create(user_id: session[:user_id], room_id: @room.id)
-      #redirect_to("/rooms/new")
-    #else
-     # redirect_to("/")
-    #end
     current_user = User.find_by(id: session[:user_id]) 
-
 
     # どのユーザーとチャットするかを取得。
     @user = User.find(params[:user_id])
@@ -35,10 +27,6 @@ class RoomsController < ApplicationController
       UserRoom.create(user_id: @user.id, room_id: @room.id)
     end
     
-    #下の２行がよく分からない
-    #@chats = @room.chat_messages
-    #@chat = ChatMessage.new(room_id: @room.id)
-
     redirect_to("/rooms/#{@room.id}")
   end
 
